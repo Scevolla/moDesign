@@ -1,5 +1,13 @@
 $(document).ready(function() {
 
+	$('.header_auth-button').on('click', function(){
+		$(this).next().slideToggle();
+		return false;
+	});
+	$('.header_menu-button').on('click', function(){
+		$(this).next().slideToggle();
+		return false;
+	});
 	//Таймер обратного отсчета
 	//Документация: http://keith-wood.name/countdown.html
 	//<div class="countdown" date-time="2015-01-07"></div>
@@ -39,7 +47,7 @@ $(document).ready(function() {
 	//Документация: http://owlgraphic.com/owlcarousel/
 	var owl = $(".carousel");
 	owl.owlCarousel({
-		items : 4
+		items: 3,
 	});
 	owl.on("mousewheel", ".owl-wrapper", function (e) {
 		if (e.deltaY > 0) {
@@ -49,10 +57,10 @@ $(document).ready(function() {
 		}
 		e.preventDefault();
 	});
-	$(".next_button").click(function(){
+	$(".next-button").click(function(){
 		owl.trigger("owl.next");
 	});
-	$(".prev_button").click(function(){
+	$(".prev-button").click(function(){
 		owl.trigger("owl.prev");
 	});
 
@@ -69,11 +77,11 @@ $(document).ready(function() {
 	
 	//Аякс отправка форм
 	//Документация: http://api.jquery.com/jquery.ajax/
-	$("form").submit(function() {
+	$("#callback").submit(function() {
 		$.ajax({
 			type: "GET",
 			url: "mail.php",
-			data: $("form").serialize()
+			data: $("#callback").serialize()
 		}).done(function() {
 			alert("Спасибо за заявку!");
 			setTimeout(function() {
